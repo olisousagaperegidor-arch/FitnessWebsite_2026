@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+         content="width=device-width, initial-scale=1.0">
+    <title>FitWell - Good Health & Well-being</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>💚 FITWELL</h1>
+    <p>Good Health & Well-being</p>
+</header>
+
+<nav>
+    <button onclick="showSection('home')">Home</button>
+    <button onclick="showSection('running')">🏃 Running</button>
+    <button onclick="showSection('lifting')">🏋️ Weight Lifting</button>
+    <button onclick="showSection('basic')">💪 Exercises</button>
+    <button onclick="showSection('walking')">🚶 Walking</button>
+    <button onclick="showSection('stretching')">🧘 Stretching</button>
+    <button onclick="showSection('cycling')">🚴 Cycling</button>
+    <button onclick="showSection('progress')">📊 Progress</button>
+    <button onclick="showSection('timer')">⏱️ Timer</button>
+</nav>
+
+<main>
+
+<section id="home" class="section active">
+    <div class="hero">
+        <h2>Small Steps. Big Results.</h2>
+        <p>
+            Take care of your body, stay active, and build healthy habits.
+        </p>
+        <button class="main-btn" onclick="showSection('running')">
+            Start Workout
+        </button>
+    </div>
+
+    <div class="cards">
+        <div class="card">
+            <h3>🏃 Running</h3>
+            <p>Track your distance, time and calories.</p>
+        </div>
+
+        <div class="card">
+            <h3>🏋️ Weight Lifting</h3>
+            <p>Track your sets, reps and weights.</p>
+        </div>
+
+        <div class="card">
+            <h3>💪 Basic Exercise</h3>
+            <p>Push-ups, squats, sit-ups and more.</p>
+        </div>
+
+        <div class="card">
+            <h3>🎯 Fitness Goals</h3>
+            <p>Set goals and monitor your progress.</p>
+        </div>
+    </div>
+</section>
+
+
+<section id="running" class="section">
+    <h2>🏃 Running Tracker</h2>
+
+    <div class="form">
+        <label>Distance (km)</label>
+        <input type="number" id="runDistance" placeholder="Example: 5">
+
+        <label>Time (minutes)</label>
+        <input type="number" id="runTime" placeholder="Example: 30">
+
+        <label>Calories Burned</label>
+        <input type="number" id="runCalories" placeholder="Example: 300">
+
+        <button onclick="saveRunning()">Save Run</button>
+    </div>
+
+    <div id="runningResult" class="result"></div>
+</section>
+
+
+<section id="lifting" class="section">
+    <h2>🏋️ Weight Lifting</h2>
+
+    <div class="form">
+        <label>Exercise</label>
+        <select id="liftExercise">
+            <option>Bench Press</option>
+            <option>Squat</option>
+            <option>Deadlift</option>
+            <option>Shoulder Press</option>
+            <option>Bicep Curl</option>
+        </select>
+
+        <label>Sets</label>
+        <input type="number" id="sets">
+
+        <label>Reps</label>
+        <input type="number" id="reps">
+
+        <label>Weight (kg)</label>
+        <input type="number" id="weight">
+
+        <button onclick="saveLifting()">Save Workout</button>
+    </div>
+
+    <div id="liftingResult" class="result"></div>
+</section>
+
+
+<section id="basic" class="section">
+    <h2>💪 Basic Exercises</h2>
+
+    <div class="exercise-grid">
+
+        <div class="exercise">
+            <h3>Push-ups</h3>
+            <p>Strengthens your chest and arms.</p>
+            <input type="number" id="pushups" placeholder="Repetitions">
+            <button onclick="saveBasic('Push-ups','pushups')">
+                Save
+            </button>
+        </div>
+
+        <div class="exercise">
+            <h3>Squats</h3>
+            <p>Strengthens your legs.</p>
+            <input type="number" id="squats" placeholder="Repetitions">
+            <button onclick="saveBasic('Squats','squats')">
+                Save
+            </button>
+        </div>
+
+        <div class="exercise">
+            <h3>Sit-ups</h3>
+            <p>Works your abdominal muscles.</p>
+            <input type="number" id="situps" placeholder="Repetitions">
+            <button onclick="saveBasic('Sit-ups','situps')">
+                Save
+            </button>
+        </div>
+
+        <div class="exercise">
+            <h3>Lunges</h3>
+            <p>Improves leg strength and balance.</p>
+            <input type="number" id="lunges" placeholder="Repetitions">
+            <button onclick="saveBasic('Lunges','lunges')">
+                Save
+            </button>
+        </div>
+
+        <div class="exercise">
+            <h3>Plank</h3>
+            <p>Strengthens your core.</p>
+            <input type="number" id="plank" placeholder="Seconds">
+            <button onclick="saveBasic('Plank','plank')">
+                Save
+            </button>
+        </div>
+
+    </div>
+</section>
+
+
+<section id="walking" class="section">
+    <h2>🚶 Walking Tracker</h2>
+
+    <div class="form">
+        <label>Steps</label>
+        <input type="number" id="steps">
+
+        <label>Distance (km)</label>
+        <input type="number" id="walkDistance">
+
+        <label>Time (minutes)</label>
+        <input type="number" id="walkTime">
+
+        <button onclick="saveWalking()">Save Walk</button>
+    </div>
+
+    <div id="walkingResult" class="result"></div>
+</section>
+
+
+<section id="stretching" class="section">
+    <h2>🧘 Stretching</h2>
+
+    <div class="stretch-list">
+        <div>🦵 Hamstring Stretch — 30 seconds</div>
+        <div>🦶 Calf Stretch — 30 seconds</div>
+        <div>💪 Shoulder Stretch — 30 seconds</div>
+        <div>🧍 Standing Quad Stretch — 30 seconds</div>
+        <div>🧘 Child's Pose — 60 seconds</div>
+    </div>
+
+    <button onclick="saveStretching()">Complete Stretching</button>
+</section>
+
+
+<section id="cycling" class="section">
+    <h2>🚴 Cycling Tracker</h2>
+
+    <div class="form">
+        <label>Distance (km)</label>
+        <input type="number" id="cycleDistance">
+
+        <label>Time (minutes)</label>
+        <input type="number" id="cycleTime">
+
+        <label>Average Speed (km/h)</label>
+        <input type="number" id="cycleSpeed">
+
+        <button onclick="saveCycling()">Save Cycling</button>
+    </div>
+</section>
+
+
+<section id="progress" class="section">
+    <h2>📊 My Progress</h2>
+
+    <div class="progress-cards">
+
+        <div class="progress-card">
+            <h3>Total Workouts</h3>
+            <strong id="totalWorkouts">0</strong>
+        </div>
+
+        <div class="progress-card">
+            <h3>Total Distance</h3>
+            <strong id="totalDistance">0 km</strong>
+        </div>
+
+        <div class="progress-card">
+            <h3>Total Minutes</h3>
+            <strong id="totalMinutes">0</strong>
+        </div>
+
+        <div class="progress-card">
+            <h3>Calories</h3>
+            <strong id="totalCalories">0</strong>
+        </div>
+
+    </div>
+
+    <h3>🎯 Fitness Goal</h3>
+
+    <div class="form">
+        <label>Workout Goal</label>
+        <input type="number" id="goal" placeholder="Example: 10">
+
+        <button onclick="setGoal()">Set Goal</button>
+    </div>
+
+    <p id="goalResult"></p>
+</section>
+
+
+<section id="timer" class="section">
+    <h2>⏱️ Workout Timer</h2>
+
+    <div class="timer">
+        <h1 id="timerDisplay">00:00</h1>
+
+        <button onclick="startTimer()">Start</button>
+        <button onclick="pauseTimer()">Pause</button>
+        <button onclick="resetTimer()">Reset</button>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <p>© 2026 FitWell | Good Health & Well-being</p>
+</footer>
+
+<script src="app.js"></script>
+
+</body>
+</html>
